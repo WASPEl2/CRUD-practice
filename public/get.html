@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CRUD Practice</title>
+</head>
+
+<body>
+    <h1>Get info</h1>
+    <div id="myData"></div>
+    <a href="index.html">Home</a>
+
+</body>
+<script>
+    fetch("/heroes", {
+            method: "get"
+        }).then(res => {
+            return res.json()
+        })
+        .then(data => {
+            getData(data)
+        }).catch(err => {
+            console.log(`error: ` + err)
+        })
+
+    function getData(data) {
+        const container = document.getElementById('myData')
+        for (var i = 0; i < data.length; i++) {
+            var div = document.createElement("div");
+            div.innerHTML = data[i].name + " " +
+                data[i].type + " " + data[i].atkrange
+            container.appendChild(div)
+        }
+    }
+</script>
+
+</html>

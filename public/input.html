@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CRUD Practice</title>
+</head>
+
+<body>
+    <h1>Input info</h1>
+    <form id="form" type="post">
+        <p><label>Hero name</label>
+            <input type="text" name="" id="name"></p>
+
+        <p><label>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            type</label>
+            <select name="" id="type">
+                <option>Fighter</option>
+                <option>Carry</option>
+                <option>Mage</option>
+                <option>Assassin</option>
+                <option>Subport</option>
+                </select></p>
+
+        <p><label>Atteck range</label>
+            <select name="" id="atkrange">
+        <option>Melee</option>
+        <option>Range</option>
+        </select></p>
+
+
+        <button type="submit">submit</button>
+        <button type="reset">reset</button>
+    </form>
+    <br>
+    <a href="index.html">Home</a>
+
+</body>
+<script>
+    const form = document.getElementById('form')
+
+    form.addEventListener('submit', function(e) {
+        e.preventDefault();
+        const name = document.getElementById('name').value
+        const type = document.getElementById('type').value
+        const atkrange = document.getElementById('atkrange').value
+            //const image = document.getElementById('image').value
+
+        fetch("/heroes/create", {
+                method: "post",
+                body: JSON.stringify({
+                    name: name,
+                    type: type,
+                    atkrange: atkrange,
+                }),
+                headers: {
+                    "Content-type": "application/json; Charset=UTF-8"
+                }
+            })
+            .then(res => {
+                return res.json()
+            })
+            .then(data => {
+                console.log(data);
+            }).catch(err => {
+                console.log("err: " + err);
+            })
+    })
+</script>
+
+
+</html>

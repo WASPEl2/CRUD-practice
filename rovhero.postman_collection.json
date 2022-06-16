@@ -1,0 +1,128 @@
+{
+	"info": {
+		"_postman_id": "cb6e71cf-66b9-4fc6-89af-539258fa435a",
+		"name": "rovhero",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "21406430"
+	},
+	"item": [
+		{
+			"name": "createHeroes",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n        \"name\": \"forTest\",\r\n        \"type\": \"assasin\",\r\n        \"atkrange\": \"malee\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:3000/heroes/create",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"heroes",
+						"create"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "heroes",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:3000/heroes",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"heroes"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "heroByName",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:3000/heroes/Skud",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"heroes",
+						"Skud"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "update",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\":\"forTest\",\r\n    \"type\":\"allaround\",\r\n    \"atkrange\":\"dnot attack\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/heroes/update",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"heroes",
+						"update"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "delete",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n        \"name\": \"forTest\",\r\n        \"type\": \"fighter\",\r\n        \"atkrange\": \"malee\"\r\n}"
+				},
+				"url": {
+					"raw": "http://localhost:3000/heroes/delete",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"heroes",
+						"delete"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
